@@ -13,8 +13,15 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/servicios/login.service';
 import { AppRoutingModule,routingComponents} from './app-routing.module.ts';
 
+const appRoutes: Routes = [
+{path:'tanquear',component: TanquearComponent},
+
+];
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule,   RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )],
   declarations: [ AppComponent, HelloComponent, MenuComponent, TanquearComponent, LoginComponent,routingComponents ],
   bootstrap:    [ AppComponent ],
   providers: [MenuService, TanquearService, LoginService, AppRoutingModule]
